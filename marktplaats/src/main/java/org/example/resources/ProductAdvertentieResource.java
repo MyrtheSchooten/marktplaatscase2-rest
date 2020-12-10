@@ -1,22 +1,33 @@
 package org.example.resources;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import org.example.dao.AdvertentieDao;
+import org.example.domain.ProductAdvertentie;
+
+import javax.inject.Inject;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Collection;
 
-@Path("/productadvertenties")
+@Path("productadvertenties")
 @Produces(MediaType.APPLICATION_JSON)
 public class ProductAdvertentieResource {
 
+    @Inject
+    private AdvertentieDao dao;
+
     @GET
-    @Path("{name}")
-    public Response helloworldName(@PathParam("name") String name) {
-        return Response
-                .ok()
-                .entity("Hello " + name + " vanuit de URL!")
-                .build();
+    public Collection<ProductAdvertentie> getAllProducten() {
+        return dao.getAllProducten();
     }
+
+    @POST
+    public ProductAdvertentie post(ProductAdvertentie p) {
+        if (dao.add(p)) {
+            return p;
+        } else {
+            throw new RuntimeException("Post contact " + p + " failed.");
+        }
+    }
+
 }

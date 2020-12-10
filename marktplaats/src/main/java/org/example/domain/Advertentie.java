@@ -24,5 +24,6 @@ public class Advertentie {
 
     private String titel;
     private double prijs;
+    private String omschrijving;
 
 }

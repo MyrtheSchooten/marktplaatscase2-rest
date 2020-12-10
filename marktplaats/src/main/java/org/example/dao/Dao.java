@@ -10,7 +10,7 @@ public abstract class Dao<T> {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public T get(long id) {
+    public T get(String id) {
         return entityManager.find(T(), id);
     }
 
