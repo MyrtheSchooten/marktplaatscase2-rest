@@ -23,11 +23,11 @@ public class ProductAdvertentieResource {
 
     @POST
     public ProductAdvertentie post(ProductAdvertentie p) {
-        if (dao.add(p)) {
+        try {
+            dao.add(p);
             return p;
-        } else {
-            throw new RuntimeException("Post contact " + p + " failed.");
+        } catch (RuntimeException e) {
+            throw new RuntimeException("Post contact" + p + "failed.");
         }
     }
-
 }

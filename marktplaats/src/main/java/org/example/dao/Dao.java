@@ -10,6 +10,12 @@ public abstract class Dao<T> {
     @PersistenceContext
     private EntityManager entityManager;
 
+    public T add(T a) {
+        entityManager.persist(a);
+        return a;
+    }
+
+
     public T get(String id) {
         return entityManager.find(T(), id);
     }
