@@ -4,6 +4,7 @@ import org.example.dao.GebruikerDao;
 import org.example.domain.Gebruiker;
 import org.example.domain.ProductAdvertentie;
 
+import javax.ejb.PostActivate;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -34,4 +35,9 @@ public class GebruikerResource {
         }
     }
 
+    @POST
+    @Path("login")
+    public Gebruiker login(Gebruiker g){
+        return g;
+    }
 }
