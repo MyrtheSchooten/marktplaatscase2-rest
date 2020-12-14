@@ -5,11 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.List;
+
 
 @Data
 @Builder
@@ -26,5 +25,8 @@ public class Gebruiker {
 
     private String gebruikersnaam;
     private String wachtwoord;
+
+/*    @OneToMany(mappedBy = "gebruiker", fetch = FetchType.EAGER)
+    private List<Advertentie> advertenties;*/
 
 }

@@ -27,7 +27,7 @@ public class ProductAdvertentieResource {
             dao.add(p);
             return p;
         } catch (RuntimeException e) {
-            throw new RuntimeException("Post contact" + p + "failed.");
+            throw new RuntimeException("Post product" + p + "failed.");
         }
     }
 }
