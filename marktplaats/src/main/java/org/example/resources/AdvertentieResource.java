@@ -1,33 +1,32 @@
 package org.example.resources;
 
 import org.example.dao.AdvertentieDao;
-import org.example.domain.ProductAdvertentie;
+import org.example.domain.Advertentie;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.util.Collection;
 
-@Path("productadvertenties")
+@Path("advertenties")
 @Produces(MediaType.APPLICATION_JSON)
-public class ProductAdvertentieResource {
+public class AdvertentieResource {
 
     @Inject
     private AdvertentieDao dao;
 
     @GET
-    public Collection<ProductAdvertentie> getAllProducten() {
+    public Collection<Advertentie> getAllProducten() {
         return dao.getAllProducten();
     }
 
     @POST
-    public ProductAdvertentie post(ProductAdvertentie p) {
+    public Advertentie post(Advertentie a) {
         try {
-            dao.add(p);
-            return p;
+            dao.add(a);
+            return a;
         } catch (RuntimeException e) {
-            throw new RuntimeException("Post product" + p + "failed.");
+            throw new RuntimeException("Post product" + a + "failed.");
         }
     }
 }

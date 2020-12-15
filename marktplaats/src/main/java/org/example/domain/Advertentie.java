@@ -14,6 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@NamedQuery(name = "ProductAdvertentie.findAll", query = "select a from Advertentie a")
 public class Advertentie {
 
     @Id
@@ -24,8 +25,6 @@ public class Advertentie {
     private double prijs;
     private String omschrijving;
 
-/*
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
-    private Gebruiker gebruiker;*/
-
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private Gebruiker eigenaar;
 }

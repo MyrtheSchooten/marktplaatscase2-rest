@@ -2,14 +2,10 @@ package org.example.resources;
 
 import org.example.dao.GebruikerDao;
 import org.example.domain.Gebruiker;
-import org.example.domain.ProductAdvertentie;
 
-import javax.crypto.KeyGenerator;
-import javax.ejb.PostActivate;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.security.Key;
 import java.util.Collection;
 
 @Path("gebruikers")

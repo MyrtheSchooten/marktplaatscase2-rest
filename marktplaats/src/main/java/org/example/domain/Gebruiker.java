@@ -26,7 +26,4 @@ public class Gebruiker {
     private String gebruikersnaam;
     private String wachtwoord;
 
-/*    @OneToMany(mappedBy = "gebruiker", fetch = FetchType.EAGER)
-    private List<Advertentie> advertenties;*/
-
 }
