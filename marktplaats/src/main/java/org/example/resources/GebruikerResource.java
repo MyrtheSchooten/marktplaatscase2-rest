@@ -1,6 +1,7 @@
 package org.example.resources;
 
 import org.example.dao.GebruikerDao;
+import org.example.domain.Advertentie;
 import org.example.domain.Gebruiker;
 
 import javax.inject.Inject;

@@ -24,6 +24,7 @@ public class Advertentie {
     private String titel;
     private double prijs;
     private String omschrijving;
+    private String soortAdvertentie;
 
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Gebruiker eigenaar;

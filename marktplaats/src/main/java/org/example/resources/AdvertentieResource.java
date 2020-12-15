@@ -2,6 +2,7 @@ package org.example.resources;
 
 import org.example.dao.AdvertentieDao;
 import org.example.domain.Advertentie;
+import org.example.domain.Gebruiker;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -20,6 +21,12 @@ public class AdvertentieResource {
         return dao.getAllProducten();
     }
 
+    @GET
+    @Path("{id}")
+    public Collection<Advertentie> getAllVanGebruiker (@PathParam("id") String id){
+        return dao.getAllByGebruikerId(id);
+    }
+
     @POST
     public Advertentie post(Advertentie a) {
         try {
@@ -29,4 +36,5 @@ public class AdvertentieResource {
             throw new RuntimeException("Post product" + a + "failed.");
         }
     }
+
 }
