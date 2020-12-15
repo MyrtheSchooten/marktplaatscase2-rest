@@ -20,32 +20,12 @@ public abstract class Dao<T> {
         return a;
     }
 
+    public boolean remove(String id) {
+        T t = entityManager.find(T(), id);
+        if (t == null) return false;
 
-    public T get(String id) {
-        return entityManager.find(T(), id);
-    }
-
-    public void save(T e){
-        entityManager.getTransaction().begin();
-        entityManager.persist(e);
-        entityManager.getTransaction().commit();
-    }
-
-    public T update(T e) {
-        entityManager.getTransaction().begin();
-        T merged = entityManager.merge(e);
-        entityManager.getTransaction().commit();
-        return merged;
-    }
-
-    public void remove(T e) {
-        entityManager.getTransaction().begin();
-        entityManager.remove(e);
-        entityManager.getTransaction().commit();
-    }
-
-    public List<T> findAll() {
-        return entityManager.createQuery("SELECT e FROM " + typeSimple() + " e ", T()).getResultList();
+        entityManager.remove(t);
+        return true;
     }
 
     private String typeSimple() { return T().getSimpleName(); }

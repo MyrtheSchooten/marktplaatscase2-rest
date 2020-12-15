@@ -37,4 +37,10 @@ public class AdvertentieResource {
         }
     }
 
+    @DELETE @Path("{id}")
+    public void delete(@PathParam("id") String id) {
+        if (!dao.remove(id)) {
+            throw new BadRequestException("Delete contact with id " + id + " failed.");
+        }
+    }
 }

@@ -25,5 +25,4 @@ public class AdvertentieDao extends Dao<Advertentie> {
         query.setParameter("id", id);
         return query.getResultList();
     }
-
 }
